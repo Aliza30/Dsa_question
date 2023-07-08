@@ -10,26 +10,28 @@ class Solution
     static int missingNumber(int arr[], int size)
     {
         // Your code here
-        int n = arr.length;
+       int n = arr.length;
 
-        // Initialize a boolean array to mark the presence of elements.
-        boolean[] present = new boolean[n + 1];
+        // Rearrange the array
         for (int i = 0; i < n; i++) {
-            if (arr[i] > 0 && arr[i] <= n) {
-                present[arr[i] - 1] = true;
+            while (arr[i] > 0 && arr[i] <= n && arr[i] != arr[arr[i] - 1]) {
+                // Swap elements to their corresponding positive index
+                int temp = arr[arr[i] - 1];
+                arr[arr[i] - 1] = arr[i];
+                arr[i] = temp;
             }
         }
 
-        // Find the first index where the element is not present.
-        int smallestMissingNumber = 1;
-        while (smallestMissingNumber <= n) {
-            if (!present[smallestMissingNumber - 1]) {
-                break;
+        // Find the missing positive number
+        for (int i = 0; i < n; i++) {
+            if (arr[i] != i + 1) {
+                return i + 1;
             }
-            smallestMissingNumber++;
         }
 
-        return smallestMissingNumber;
+        // If all positive numbers are in their correct positions,
+        // the missing positive number is N + 1
+        return n + 1;
     }
 }
 
