@@ -6,11 +6,11 @@ class Solution {
                 digits[i]++;
                 return digits;
             }
-            digits[i] = 0;
+            digits[i] = 0;//when ever arr[n]=9 it will be set 0 and i--;
         }
-        digits = new int[n+1];
-        digits[0] = 1;
-        return digits;   
+        digits = new int[n+1];//arr[9]; increase size of arr length
+        digits[0] = 1;//arr[0] th place= 1 as per 3rd example;
+        return digits;   // return value
              
 
     }
