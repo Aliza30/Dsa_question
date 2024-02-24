@@ -73,7 +73,7 @@ class Solution {
         
         public void reset(int p) {
             parent[p] = p;
-            rank[p] = 1;
+            rank[p] = 0;
         }
     
     }
