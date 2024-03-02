@@ -8,6 +8,8 @@ class Solution {
         // Arrays.sort(sqrar);
         // return sqrar;
         
+        
+        //Approch2:
         for(int i=0; i< nums.length;i++){
             nums[i]= nums[i]*nums[i];
         }
